@@ -388,10 +388,10 @@ def draw(eps, lam, u_max, p_max, density):
 
 
 def update(_=None):
-    eps     = sliders[r'$\\varepsilon$'].val
-    lam     = sliders[r'$\\lambda$'].val
-    u_max   = sliders[r'$u_{\\max}$'].val
-    p_max   = sliders[r"$p_{\\max}$"].val
+    eps     = sliders[r'$\varepsilon$'].val
+    lam     = sliders[r'$\lambda$'].val
+    u_max   = sliders[r'$u_{\max}$'].val
+    p_max   = sliders[r"$p_{\max}$"].val
     density = sliders['density'].val
     draw(eps, lam, u_max, p_max, density)
 
@@ -453,9 +453,9 @@ def on_click(event):
     u0, p0 = event.xdata, event.ydata
     if u0 is None or p0 is None or u0 <= 0 or p0 <= 0:
         return
-    eps   = sliders[r'$\\varepsilon$'].val
-    u_max = sliders[r'$u_{\\max}$'].val
-    p_max = sliders[r"$p_{\\max}$"].val
+    eps   = sliders[r'$\varepsilon$'].val
+    u_max = sliders[r'$u_{\max}$'].val
+    p_max = sliders[r"$p_{\max}$"].val
     u_t, p_t = integrate_trajectory(u0, p0, eps, xi_max=3.0, n_steps=8000)
     mask = (u_t > 0) & (u_t < u_max) & (p_t > 0) & (p_t < p_max)
     ax.plot(u_t[mask], p_t[mask], color='#ff4488', lw=1.6,
@@ -467,10 +467,10 @@ fig.canvas.mpl_connect('button_press_event', on_click)
 
 # Initial draw
 draw(
-    sliders[r'$\\varepsilon$'].val,
-    sliders[r'$\\lambda$'].val,
-    sliders[r'$u_{\\max}$'].val,
-    sliders[r"$p_{\\max}$"].val,
+    sliders[r'$\varepsilon$'].val,
+    sliders[r'$\lambda$'].val,
+    sliders[r'$u_{\max}$'].val,
+    sliders[r"$p_{\max}$"].val,
     sliders['density'].val,
 )
 
